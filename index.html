@@ -1,52 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<!--
+This is an HTML document. It contains information about how elements in the website
+are arranged. In other words, it describes the layout of a website.
+I can't wait to see the resumes you put together!
+Cameron Pittman, Udacity Course Developer
+-->
+
+<!--
+The <head> of a website generally links to important resources the page will
+need to load. You'll see a lot of <link>s to CSS files for styles and
+<scripts> for JavaScript files to build interactions.
+-->
+<html>
+
 <head>
-	<meta charset="utf-8">
-	<title>Making Peach Ice Cream</title>
-	<link href="https://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-	<link href="css/styles.css" rel="stylesheet">
-    <meta name="udacity-grader" content="http://udacity.github.io/fend/lessons/L5/problem-set/07-making-peach-ice-cream/tests.json">
+  <!-- This tells the browser how to read the document. -->
+  <meta charset="utf-8">
+
+  <!-- Tells the browser what the title of this page should be. -->
+  <title>Resume</title>
+
+  <!-- Load the page styles. -->
+  <link href="css/style.css" rel="stylesheet">
+
+
+
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
+
 <body>
-	<main class="recipe">
-		<section class="section-content clearfix">
-			<div class="recipe-image">
-				<img src="img/homemade-peach-ice-cream.png" alt="homemade peach ice cream">
-			</div>
-			<div class="recipe-summary">
-				<h2 class="recipe-title">Homemade Peach Ice Cream</h2>
-				<p class="recipe-author"><em>Recipe by: James Parkes</em></p>
-				<ul class="recipe-notes">
-					<span class="recipe-note"><span><i class="fa fa-cutlery" aria-hidden="true"></i> 20+ servings</span></span>
-					<span class="recipe-note"><span><i class="fa fa-clock-o" aria-hidden="true"></i> 30 min</span></span>
-					<span class="recipe-note"><span><i class="fa fa-cube" aria-hidden="true"></i> 20 min</span></span>
-				</ul>
-			</div>
-		</section>
-		<section class="section-content clearfix">
-			<h3 class="section-title">Ingredients</h3>
-			<ul class="recipe-ingredients">
-				<li>2 (1 lb) bags of ice</li>
-				<li>1 box of rock/ice cream salt</li>
-				<li>15-20 fresh peaches</li>
-				<li>1 egg beater</li>
-				<li>3 cups sugar</li>
-				<li>1 tbsp vanilla flavoring</li>
-				<li>1 tbsp lemon juice</li>
-				<li>1 cup whole milk</li>
-			</ul>
-		</section>
-		<section class="section-content clearfix">
-			<h3 class="section-title">Directions</h3>
-			<ol class="recipe-directions">
-				<li><span>Wash, peel, and cut peaches into medium size pieces.</span></li>
-				<li><span>Add at least 1 tbsp lemon juice to peaches until all peaches are lightly covered. The lemon juice will keep the peaches from browning.</span></li>
-				<li><span>Add peaches, sugar, and milk into the blender/food processor and blend until all ingredients are fully incorporated. The peaches are not meant to be fine pieces, but rather small chunks. Pour the mixture into ice cream container to be used in the freezing process. Repeat this process until all the peaches have been blended. Once this step is complete, at least 3 cups of sugar and 1 cup of milk should be incorporated into the mixture. Make sure that once during the blending process you add the egg beater to the mixture to be incorporated.</span></li>
-				<li><span>To fill the ice cream container to the fill line, continue to add milk. Once the mixture has been topped off to the fill line, add sugar to taste. Almost always, the mixture requires more sugar to be added than the recipe calls.</span></li>
-				<li><span>Place the ice cream container inside the ice cream machine. Start the ice cream machine. While the ice cream machine is running, continue to add layers of ice and rock salt to the sides of the machine to freeze the ice cream so that the entire container is surrounded by ice and rock salt. Once the machine finishes, the ice cream can be served immediately or placed into the freezer to serve later.</span></li>
-			</ol>
-		</section>
-	</main>
+  <div id="main">
+    <!--
+    Everything from here to the <script> tag below is the skeleton of your
+    website. Your code will add information to each of the sections of the
+    resume below. You can pretty easily figure out what each section will
+    display by looking at the id or at what's written between the <h2> tags.
+    -->
+    <div id="header" class="center-content clear-fix">
+      <ul id="topContacts" class="flex-box"></ul>
+    </div>
+    <div style="clear: both;"></div>
+
+    <section class="content">
+      <div id="workExperience" class="gray">
+        <h2>Work Experience</h2>
+      </div>
+      <div id="projects">
+        <h2>Projects</h2>
+      </div>
+      <div id="education" class="gray">
+        <h2>Education</h2>
+      </div>
+      <div id="mapDiv">
+        <h2>Where I've Lived and Worked</h2>
+      </div>
+    </section>
+    <div id="lets-connect" class="dark-gray">
+      <h2 class="orange center-text">Let's Connect</h2>
+      <ul id="footerContacts" class="flex-box">
+      </ul>
+    </div>
+  </div>
+
+  <!-- "HTML is loaded by the browser in the order it appears in the file. If the JavaScript is loaded first and it is supposed to affect the HTML below it, it might not work, as the JavaScript would be loaded before the HTML it is supposed to work on. Therefore, putting JavaScript near the bottom of the HTML page is often the best strategy."
+  https://developer.mozilla.org/en-US/Learn/Getting_started_with_the_web/JavaScript_basics -->
+
+  <!-- "Javascript assets, by default, tend to block any other parallel downloads from occurring. So, you can imagine if you have plenty of <script> tags in the head, calling on multiple external scripts will block the HTML from loading, thus greeting the user with a blank white screen, because no other content on your page will load until the JS files have completely loaded."
+    http://stackoverflow.com/questions/4396849/does-the-script-tag-position-in-html-affects-performance-of-the-webpage -->
+
+  <!--
+  jQuery is a common JavaScript library for reading and making changes to the
+  Document Object Model (DOM). The DOM is a tree that contains information
+  about what is actually visible on a website.
+  While HTML is a static document, the browser converts HTML to the
+  DOM and the DOM can change. In fact, JavaScript's power comes from
+  its ability to manipulate the DOM, which is essentially a JavaScript
+  object. When JavaScript makes something interesting happen on a
+  website, it's likely the action happened because JavaScript changed
+  the DOM. jQuery is fast and easy to use, but it doesn't do anything
+  you can't accomplish with vanilla (regular) JavaScript.
+  -->
+  <script src="js/jQuery.js"></script>
+
+  <!-- More on helper.js in the class -->
+  <script src="js/helper.js"></script>
+
+  <!--
+  The next line tells the browser where to download the JavaScript file you'll be
+  writing. In resumeBuilder.js, you'll be writing code that builds the resume
+  dynamically when this website, index.html, is opened.
+  -->
+  <script src="js/resumeBuilder.js"></script>
+
+
+  <!--
+  These scripts are written in JavaScript. You'll be breaking them down as part of
+  a quiz. Essentially, the next few lines are checking to see if you have not
+  changed each section of the resume. If you have not made any changes to a section
+  of the resume, then that part of the resume does not show up. More on this in the
+  course.
+  -->
+
+  <script>
+    // Notice how all of a sudden there's JavaScript inside this HTML
+    // document? You can write JavaScript between <script> tags. At the end of your
+    // JavaScript, don't forget the closing script tag with the slash (/).
+    // Also, this is a JavaScript style comment. You can comment in JavaScript with:
+    //   two slashes for all following characters on a single line, or
+    /*
+        an opening and closing set of slash asterisks for block comments.
+    */
+    if (document.getElementsByClassName('flex-item').length === 0)
+    {
+      document.getElementById('topContacts').style.display = 'none';
+    }
+    if (document.getElementsByTagName('h1').length === 0)
+    {
+      document.getElementById('header').style.display = 'none';
+    }
+    if (document.getElementsByClassName('work-entry').length === 0)
+    {
+      document.getElementById('workExperience').style.display = 'none';
+    }
+    if (document.getElementsByClassName('project-entry').length === 0)
+    {
+      document.getElementById('projects').style.display = 'none';
+    }
+    if (document.getElementsByClassName('education-entry').length === 0)
+    {
+      document.getElementById('education').style.display = 'none';
+    }
+    if (document.getElementsByClassName('flex-item').length === 0)
+    {
+      document.getElementById('lets-connect').style.display = 'none';
+    }
+    if (document.getElementById('map') === null)
+    {
+      document.getElementById('mapDiv').style.display = 'none';
+    }
+
+  </script>
 </body>
+
 </html>
